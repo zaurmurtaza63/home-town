@@ -21,8 +21,9 @@ const API_URL = process.env.REACT_APP_API_URL;
 export async function loginUser(email, password) {
   const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", },
     body: JSON.stringify({ email, password }),
+    mode: "cors", // ✅ Enables CORS
   });
 
   return await res.json();
