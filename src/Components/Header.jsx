@@ -2,6 +2,7 @@ import React , {useState} from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Logo from '../SiteImages/logo.png';
 import PriceFilteration from "./PriceFilteration";
+import ContractForms from "./ContractForms/ContractForms";
 
 const Header = () => {
 const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +48,9 @@ const [isOpen, setIsOpen] = useState(false);
         BOOK NOW
       </button>
     </header>
-    <PriceFilteration isOpen={isOpen} setIsOpen={setIsOpen} />
+    <PriceFilteration isOpen={isOpen} setIsOpen={setIsOpen}>
+      <ContractForms onDone={() => setIsOpen(false)} />
+    </PriceFilteration>
     </>
   );
 };
