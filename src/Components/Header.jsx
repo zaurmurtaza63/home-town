@@ -1,11 +1,12 @@
-import React from "react";
+import React , {useState} from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Logo from '../SiteImages/logo.png';
-import PriceFilteration from '../Components/PriceFilteration';
+import PriceFilteration from "./PriceFilteration";
 
 const Header = () => {
-
+const [isOpen, setIsOpen] = useState(false);
   return (
+    <>
     <header className="w-full bg-white shadow-sm py-2 px-10 flex items-center justify-between">
       {/* Left Section - Logo */}
       <div className="h-[80px] w-[80px]">
@@ -40,10 +41,14 @@ const Header = () => {
 </div>
       </nav>
 
-      <button className="bg-[#0b2239] text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#15365c] transition" >
+      <button onClick={() => setIsOpen(true)}
+        className="bg-[#0b2239] text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#15365c] transition"
+      >
         BOOK NOW
       </button>
     </header>
+    <PriceFilteration isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   );
 };
 
