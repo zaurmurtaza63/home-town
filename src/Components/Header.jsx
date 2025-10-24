@@ -1,8 +1,10 @@
 import React from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
-import Logo from '../SiteImages/logo.png'
+import Logo from '../SiteImages/logo.png';
+import PriceFilteration from '../Components/PriceFilteration';
 
 const Header = () => {
+
   return (
     <header className="w-full bg-white shadow-sm py-2 px-10 flex items-center justify-between">
       {/* Left Section - Logo */}
@@ -38,8 +40,7 @@ const Header = () => {
 </div>
       </nav>
 
-      {/* Right Section - Button */}
-      <button className="bg-[#0b2239] text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#15365c] transition">
+      <button className="bg-[#0b2239] text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#15365c] transition" >
         BOOK NOW
       </button>
     </header>
