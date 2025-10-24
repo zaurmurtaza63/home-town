@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hero-section{
+     background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(../public/Assets/Images/how-to-design-a-house.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.firstCommunityImg,.secondCommunityImg,.thirdCommunityImg{
+  background-position: center;
+  background-size: cover;
+}
+.firstCommunityImg{
+  background-image: url(./SiteImages/community-1.webp);
+}
+.secondCommunityImg{
+  background-image: url(./SiteImages/secondCommunity.jpeg);
+}
+.thirdCommunityImg{
+  background-image: url(./SiteImages/thirdCommuinity.jpg);
+}
+.contractImg{
+/* background-image: url(./SiteImages/Contract-img.webp); */
+ background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
