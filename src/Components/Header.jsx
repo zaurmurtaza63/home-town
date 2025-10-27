@@ -4,7 +4,10 @@ import Logo from '../SiteImages/logo.png';
 import PriceFilteration from "./PriceFilteration";
 import ContractForms from "./ContractForms/ContractForms";
 
+import { useAuthModal } from "../context/AuthModalContext";
+
 const Header = () => {
+const { openAuth } = useAuthModal();
 const [isOpen, setIsOpen] = useState(false);
  const dropdownItems = ["Houses", "Flats", "Shops", "Plots"];
   return (
@@ -61,13 +64,16 @@ const [isOpen, setIsOpen] = useState(false);
         <li><a href="#" className="hover:text-[#0b2239] transition">Contact Us</a></li>
       </ul>
     </nav>
-
-
-      <button onClick={() => setIsOpen(true)}
-        className="bg-[#0b2239] text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-[#15365c] transition"
-      >
-        BOOK NOW
-      </button>
+      {/* Right Section - Auth Buttons */}
+      <div className="flex items-center gap-4">
+        <button onClick={() => openAuth("login")} className="text-gray-700 hover:text-[#0b2239] transition font-medium hidden sm:inline">Login</button>
+        <button
+          onClick={() => openAuth("signup")}
+          className="bg-[#0b2239] text-white px-4 py-2 rounded-md font-semibold text-sm hover:bg-[#15365c] transition"
+        >
+          Sign Up
+        </button>
+      </div>
     </header>
     <PriceFilteration isOpen={isOpen} setIsOpen={setIsOpen}>
       <ContractForms onDone={() => setIsOpen(false)} />

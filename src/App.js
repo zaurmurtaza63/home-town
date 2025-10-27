@@ -11,6 +11,7 @@ import HowItWorks from "./Components/HowItWorks";
 import Dashboard from "./Components/Dashboard";
 import Builders from "./Components/Builders";
 import HouseList from "./Components/HouseList";
+import { AuthModalProvider } from "./context/AuthModalContext";
 
 function Layout() {
   const location = useLocation();
@@ -48,7 +49,9 @@ function Layout() {
 function App() {
   return (
     <Router>
-      <Layout />
+      <AuthModalProvider>
+        <Layout />
+      </AuthModalProvider>
     </Router>
   );
 }

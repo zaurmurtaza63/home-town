@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { signup, login, forgotPassword } from "../api/auth";
+import { useAuthModal } from "../context/AuthModalContext";
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [showForm, setShowForm] = useState(false);
-  const [formType, setFormType] = useState("login");
-  const [showForgot, setShowForgot] = useState(false);
+  const { isOpen: showForm, openAuth, closeAuth, formType, setFormType, showForgot, setShowForgot } = useAuthModal();
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -59,9 +58,9 @@ const HeroSection = () => {
           email: formData.email,
           password: formData.password,
         });
-        localStorage.setItem("token", data.token);
-        alert("Login successful!");
-        setShowForm(false);
+  localStorage.setItem("token", data.token);
+  alert("Login successful!");
+  closeAuth();
         navigate("/dashboard");
       }
     } catch (error) {
@@ -87,7 +86,7 @@ const HeroSection = () => {
       {showForm && (
         <div
           className="absolute inset-0 bg-black/40 backdrop-blur-sm z-20"
-          onClick={() => setShowForm(false)}
+          onClick={() => closeAuth()}
         ></div>
       )}
 
@@ -98,8 +97,7 @@ const HeroSection = () => {
           className="border border-gray-400 text-white px-6 py-3 rounded-md font-medium hover:border-[#1ABC9C] hover:text-[#1ABC9C] transition"
           onClick={(e) => {
             e.preventDefault();
-            setFormType("signup");
-            setShowForm(true);
+            openAuth("signup");
           }}
         >
           Register / Sign In
@@ -130,15 +128,11 @@ const HeroSection = () => {
       >
         <div className="flex justify-between items-center px-6 py-4 border-b">
           <h2 className="text-xl font-semibold text-[#1a2a33]">
-            {showForgot
-              ? "Reset Password 🔒"
-              : formType === "login"
-              ? "Welcome Back 👋"
-              : "Create Account 🏡"}
+            {showForgot ? "Reset Password 🔒" : formType === "login" ? "Welcome Back 👋" : "Create Account 🏡"}
           </h2>
           <button
             onClick={() => {
-              setShowForm(false);
+              closeAuth();
               setShowForgot(false);
             }}
             className="text-gray-500 hover:text-[#1ABC9C]"
