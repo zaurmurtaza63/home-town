@@ -127,9 +127,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="py-12 bg-white">
-      <div className="hero-section container mx-auto px-4 h-screen flex items-center justify-center">
-        <h1 className="text-center text-3xl md:text-5xl font-bold text-white mb-4 w-[70%]">
+    <section className="hero-section py-12 h-screen flex items-center justify-center">
+      <div className=" container px-4 flex justify-center">
+        <h1 className="text-center text-3xl md:text-5xl font-bold text-white mb-4 w-[70%] pt-14">
           Your Dream Property is Just a Click away
         </h1>
       </div>
