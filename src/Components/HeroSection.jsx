@@ -121,11 +121,11 @@ const HeroSection = () => {
 
       {/* Slide-in Form */}
       <div
-  className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl transform transition-transform duration-500 z-30 overflow-y-auto ${
+  className={`pt-[100px] rounded-lg fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl transform transition-transform duration-500 z-30 overflow-y-auto ${
     showForm ? "translate-x-0" : "translate-x-full"
   }`}
 >
-  <div className="flex justify-between items-center px-6 py-4 border-b pt-[110px]">
+  <div className="flex justify-between items-center px-6 py-4 border-b">
     <h2 className="text-xl font-semibold text-[#1a2a33]">
       {showForgot
         ? "Reset Password 🔒"
@@ -317,10 +317,13 @@ const HeroSection = () => {
               >
                 Sign In
               </span>
+              <p className="text-sm text-center text-gray-600 mt-2"><a href="#">
+          Join As Builder
+          </a></p>
             </>
           )}
         </p>
-        <p className="text-sm text-center text-gray-600 cursor-pointer">Join As Builder</p>
+        
       </form>
     )}
   </div>
