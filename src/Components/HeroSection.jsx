@@ -82,7 +82,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="hero-section flex flex-col items-center justify-center min-h-screen bg-white text-center px-6 relative overflow-hidden">
+<section className="hero-section flex flex-col items-center justify-center min-h-screen bg-white text-center px-6 relative overflow-hidden z-0 pt-[100px]">
       {/* Background overlay */}
       {showForm && (
         <div
