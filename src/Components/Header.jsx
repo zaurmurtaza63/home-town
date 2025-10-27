@@ -61,6 +61,7 @@ const [isOpen, setIsOpen] = useState(false);
 
         <li><a href="#" className="hover:text-[#0b2239] transition">Builders</a></li>
         <li><a href="#" className="hover:text-[#0b2239] transition">About Us</a></li>
+        <li><a href="#" className="hover:text-[#0b2239] transition">Blogs</a></li>
         <li><a href="#" className="hover:text-[#0b2239] transition">Contact Us</a></li>
       </ul>
     </nav>
