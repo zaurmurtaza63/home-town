@@ -4,6 +4,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { signup, login, forgotPassword } from "../api/auth";
 import { useAuthModal } from "../context/AuthModalContext";
+import PropertySearchBar from "../Components/PropertySearchBar"
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -127,12 +128,29 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="hero-section py-12 h-screen flex items-center justify-center">
-      <div className=" container px-4 flex justify-center">
-        <h1 className="text-center text-3xl md:text-5xl font-bold text-white mb-4 w-[70%] pt-14">
-          Your Dream Property is Just a Click away
-        </h1>
-      </div>
+   <section className="hero-section relative h-screen flex items-center justify-center bg-gradient-to-b from-[#0b2239] to-[#1a365d] text-white">
+  <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
+    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8 w-full md:w-2/3">
+      Your Dream Property is Just a Click Away
+    </h1>
+
+    <div className="flex flex-col sm:flex-row gap-4">
+      <button className="px-8 py-3 bg-[#1ABC9C] text-white font-semibold rounded-md hover:bg-[#17a589] transition-all duration-300 shadow-lg hover:shadow-[#1ABC9C]/30">
+        <a href="#">Buy</a>
+      </button>
+      <button className="px-8 py-3 bg-transparent border border-[#1ABC9C] text-[#1ABC9C] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300">
+        <a href="#">Sell</a>
+      </button>
+      <button className="px-8 py-3 bg-white text-[#0b2239] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300">
+        <a href="#">New Projects</a>
+      </button>
+    </div>
+    <PropertySearchBar/>
+  </div>
+
+  {/* Optional subtle overlay pattern or gradient shine */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20 pointer-events-none"></div>
+
 
       {/* 🔹 AUTH MODAL */}
       {showForm && (
