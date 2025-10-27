@@ -262,15 +262,26 @@ const HeroSection = () => {
         <input name="ntn_number" onChange={handleChange} className="w-full border rounded px-3 py-2 mb-2" />
         <label className="block text-sm font-medium text-gray-700">License ID</label>
         <input name="license_id" onChange={handleChange} className="w-full border rounded px-3 py-2 mb-2" />
-       <label className="block text-sm font-medium text-gray-700">License Picture</label>
+    <label className="block text-sm font-medium text-gray-700">License Picture</label>
 <input
   type="file"
   name="license_picture"
   accept="application/pdf"
-  onChange={handleFileChange}
+  onChange={(e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.type !== "application/pdf") {
+        alert("Only PDF files are allowed!");
+        e.target.value = ""; // clear file input
+        return;
+      }
+      setFormData({ ...formData, license_picture: file });
+    }
+  }}
   className="w-full border rounded px-3 py-2 mb-1"
 />
 <p className="text-xs text-gray-500 mb-4">Please upload PDF document only.</p>
+
 
         <div className="flex gap-2">
           <button type="button" onClick={() => setBuilderStep(0)} className="w-1/2 border rounded py-2">
