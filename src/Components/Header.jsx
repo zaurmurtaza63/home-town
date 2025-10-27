@@ -91,11 +91,10 @@ const [isOpen, setIsOpen] = useState(false);
       </ul>
     </nav>
       {/* Right Section - Auth Buttons */}
-      <div className="flex items-center gap-2 bg-black px-4 py-3 rounded-lg text-white">
+      <div className= "flex items-center gap-2 bg-black px-4 py-3 rounded-lg text-white hover:cursor-pointer"onClick={() => openAuth("login")}>
         <span><img src={UserIcon} alt="user icon" /></span>
-        <button onClick={() => openAuth("login")} className="text-white rounded-md font-medium text-sm">Login</button>/
+        <button className="text-white rounded-md font-medium text-sm">Login</button>/
         <button
-          onClick={() => openAuth("signup")}
           className="text-white rounded-md font-medium text-sm"
         >
           Sign Up

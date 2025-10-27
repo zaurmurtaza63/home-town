@@ -115,212 +115,217 @@ const HeroSection = () => {
       </nav>
 
       {/* Hero Text */}
-      <div className="z-10 text-white">
-        <h1 className="text-5xl md:text-6xl font-bold">Find Your Dream Home</h1>
-        <p className="text-2xl mt-2">New or Pre-Owned</p>
+      <div className="z-10 text-white flex flex-col items-center">
+        <h1 className="text-4xl md:text-[40px] font-bold max-w-[70%] leading-[1.3em]">Your Ideal Property is Just a Click Away</h1>
       </div>
 
       {/* Slide-in Form */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl transform transition-transform duration-500 z-30 ${
-          showForm ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center px-6 py-4 border-b">
-          <h2 className="text-xl font-semibold text-[#1a2a33]">
-            {showForgot ? "Reset Password 🔒" : formType === "login" ? "Welcome Back 👋" : "Create Account 🏡"}
-          </h2>
-          <button
-            onClick={() => {
-              closeAuth();
-              setShowForgot(false);
-            }}
-            className="text-gray-500 hover:text-[#1ABC9C]"
-          >
-            ✕
-          </button>
-        </div>
+  className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl transform transition-transform duration-500 z-30 overflow-y-auto ${
+    showForm ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  <div className="flex justify-between items-center px-6 py-4 border-b pt-[110px]">
+    <h2 className="text-xl font-semibold text-[#1a2a33]">
+      {showForgot
+        ? "Reset Password 🔒"
+        : formType === "login"
+        ? "Welcome Back 👋"
+        : "Create Account 🏡"}
+    </h2>
+    <button
+      onClick={() => {
+        closeAuth();
+        setShowForgot(false);
+      }}
+      className="text-gray-500 hover:text-[#1ABC9C]"
+    >
+      ✕
+    </button>
+  </div>
 
-        <div className="p-6">
-          {/* Forgot Password Form */}
-          {showForgot ? (
-            <form className="flex flex-col gap-4" onSubmit={handleForgotSubmit}>
-              <p className="text-gray-600 text-sm mb-2">
-                Enter your registered email to receive a password reset link.
-              </p>
+  <div className="p-6">
+    {/* Forgot Password Form */}
+    {showForgot ? (
+      <form className="flex flex-col gap-4" onSubmit={handleForgotSubmit}>
+        <p className="text-gray-600 text-sm mb-2">
+          Enter your registered email to receive a password reset link.
+        </p>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+          required
+          className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+        />
+        <button
+          type="submit"
+          className="bg-[#1ABC9C] text-white py-2 rounded-md hover:bg-[#16a085] transition"
+        >
+          Send Reset Link
+        </button>
+        <p
+          onClick={() => setShowForgot(false)}
+          className="text-sm text-center text-[#1ABC9C] cursor-pointer hover:underline mt-2"
+        >
+          ← Back to Login
+        </p>
+      </form>
+    ) : (
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        {formType === "signup" && (
+          <>
+            <input
+              type="text"
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange}
+              placeholder="First Name"
+              required
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+            />
+            <input
+              type="text"
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
+              placeholder="Last Name"
+              required
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              required
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+            />
+            <div className="relative">
               <input
-                type="email"
-                name="email"
-                value={formData.email}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="Password"
                 required
-                className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
               />
               <button
-                type="submit"
-                className="bg-[#1ABC9C] text-white py-2 rounded-md hover:bg-[#16a085] transition"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
               >
-                Send Reset Link
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </button>
-              <p
-                onClick={() => setShowForgot(false)}
-                className="text-sm text-center text-[#1ABC9C] cursor-pointer hover:underline mt-2"
-              >
-                ← Back to Login
-              </p>
-            </form>
-          ) : (
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-              {formType === "signup" && (
-                <>
-                  <input
-                    type="text"
-                    name="first_name"
-                    value={formData.first_name}
-                    onChange={handleChange}
-                    placeholder="First Name"
-                    required
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
-                  />
-                  <input
-                    type="text"
-                    name="last_name"
-                    value={formData.last_name}
-                    onChange={handleChange}
-                    placeholder="Last Name"
-                    required
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    required
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    required
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
-                  />
-                  <div className="relative">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      placeholder="Password"
-                      required
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
-                    >
-                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </button>
-                  </div>
-                  <div className="relative">
-                    <input
-                      type={showConfirm ? "text" : "password"}
-                      name="confirm"
-                      value={formData.confirm}
-                      onChange={handleChange}
-                      placeholder="Confirm Password"
-                      required
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowConfirm(!showConfirm)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
-                    >
-                      {showConfirm ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </button>
-                  </div>
-                </>
-              )}
-
-              {formType === "login" && (
-                <>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    required
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
-                  />
-                  <div className="relative">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      placeholder="Password"
-                      required
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
-                    >
-                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </button>
-                  </div>
-                  <p
-                    onClick={() => setShowForgot(true)}
-                    className="text-sm text-right text-[#1ABC9C] cursor-pointer hover:underline"
-                  >
-                    Forgot Password?
-                  </p>
-                </>
-              )}
-
+            </div>
+            <div className="relative">
+              <input
+                type={showConfirm ? "text" : "password"}
+                name="confirm"
+                value={formData.confirm}
+                onChange={handleChange}
+                placeholder="Confirm Password"
+                required
+                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
+              />
               <button
-                type="submit"
-                className="bg-[#1ABC9C] text-white py-2 rounded-md hover:bg-[#16a085] transition"
+                type="button"
+                onClick={() => setShowConfirm(!showConfirm)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
               >
-                {formType === "login" ? "Log In" : "Sign Up"}
+                {showConfirm ? <VisibilityIcon /> : <VisibilityOffIcon />}
               </button>
+            </div>
+          </>
+        )}
 
-              <p className="text-sm text-center text-gray-600 mt-4">
-                {formType === "login" ? (
-                  <>
-                    Don’t have an account?{" "}
-                    <span
-                      onClick={() => setFormType("signup")}
-                      className="text-[#1ABC9C] font-medium cursor-pointer hover:underline"
-                    >
-                      Sign Up
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    Already have an account?{" "}
-                    <span
-                      onClick={() => setFormType("login")}
-                      className="text-[#1ABC9C] font-medium cursor-pointer hover:underline"
-                    >
-                      Sign In
-                    </span>
-                  </>
-                )}
-              </p>
-            </form>
+        {formType === "login" && (
+          <>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-[#1ABC9C]"
+            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Password"
+                required
+                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:border-[#1ABC9C]"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#1ABC9C]"
+              >
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              </button>
+            </div>
+            <p
+              onClick={() => setShowForgot(true)}
+              className="text-sm text-right text-[#1ABC9C] cursor-pointer hover:underline"
+            >
+              Forgot Password?
+            </p>
+          </>
+        )}
+
+        <button
+          type="submit"
+          className="bg-[#1ABC9C] text-white py-2 rounded-md hover:bg-[#16a085] transition"
+        >
+          {formType === "login" ? "Log In" : "Sign Up"}
+        </button>
+
+        <p className="text-sm text-center text-gray-600 mt-4">
+          {formType === "login" ? (
+            <>
+              Don’t have an account?{" "}
+              <span
+                onClick={() => setFormType("signup")}
+                className="text-[#1ABC9C] font-medium cursor-pointer hover:underline"
+              >
+                Sign Up
+              </span>
+            </>
+          ) : (
+            <>
+              Already have an account?{" "}
+              <span
+                onClick={() => setFormType("login")}
+                className="text-[#1ABC9C] font-medium cursor-pointer hover:underline"
+              >
+                Sign In
+              </span>
+            </>
           )}
-        </div>
-      </div>
+        </p>
+        <p className="text-sm text-center text-gray-600 cursor-pointer">Join As Builder</p>
+      </form>
+    )}
+  </div>
+</div>
+
     </section>
   );
 };
