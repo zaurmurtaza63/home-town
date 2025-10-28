@@ -78,7 +78,7 @@ const PropertySearchBar = () => {
   }, []);
 
   return (
-    <div className="relative mt-5 flex flex-col gap-2 w-full bg-white/10 backdrop-blur-[8px] text-white rounded-md p-3 shadow-lg md:max-w-[80%] max-w-full lg:max-w-[60%]">
+    <div className="relative mt-5 flex flex-col gap-2 w-full bg-black/10 backdrop-blur-[25px] text-white rounded-md p-3 shadow-lg md:max-w-[80%] max-w-full lg:max-w-[60%]">
       {/* Top Row */}
       <div className="flex items-center gap-4 flex-wrap">
         {/* City */}
@@ -137,7 +137,7 @@ const PropertySearchBar = () => {
             name="propertyType"
             value={filters.propertyType}
             onChange={handleChange}
-            className="bg-[#333] w-full border border-[#444] rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
+            className="bg-white text-black w-full border border-[#444] rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
           >
             <option>Homes</option>
             <option>Plots</option>
@@ -156,13 +156,13 @@ const PropertySearchBar = () => {
             <input
               readOnly
               value={filters.priceMin}
-              className="w-1/2 bg-[#333] border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
+              className="w-1/2 bg-white text-black border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
             />
             <span className="text-gray-400 text-sm">to</span>
             <input
               readOnly
               value={filters.priceMax}
-              className="w-1/2 bg-[#333] border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
+              className="w-1/2 bg-white text-black border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
             />
             <span className="absolute right-2 text-gray-400">▼</span>
           </div>
@@ -170,7 +170,7 @@ const PropertySearchBar = () => {
           {showPriceDropdown && (
             <div
               ref={dropdownRef}
-              className="absolute top-full left-0 mt-2 bg-white text-black rounded-md shadow-xl z-50 w-[240px] p-3"
+              className="absolute top-full left-0 mt-2 bg-white text-black text-black rounded-md shadow-xl z-50 w-[240px] p-3"
             >
               <div className="flex justify-between items-center border-b pb-1 mb-2">
                 <span className="font-semibold text-sm text-[#1ABC9C]">
@@ -236,13 +236,13 @@ const PropertySearchBar = () => {
             <input
               readOnly
               value={filters.areaMin}
-              className="w-1/2 bg-[#333] border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
+              className="w-1/2 bg-white text-black border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
             />
             <span className="text-gray-400 text-sm">to</span>
             <input
               readOnly
               value={filters.areaMax}
-              className="w-1/2 bg-[#333] border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
+              className="w-1/2 bg-white text-black border border-[#444] rounded px-2 py-2 text-sm cursor-pointer"
             />
             <span className="absolute right-2 text-gray-400">▼</span>
           </div>
@@ -250,7 +250,7 @@ const PropertySearchBar = () => {
           {showAreaDropdown && (
             <div
               ref={areaDropdownRef}
-              className="absolute top-full left-0 mt-2 bg-white text-black rounded-md shadow-xl z-50 w-[240px] p-3"
+              className="absolute top-full left-0 mt-2 bg-white text-black text-black rounded-md shadow-xl z-50 w-[240px] p-3"
             >
               <div className="flex justify-between items-center border-b pb-1 mb-2">
                 <span className="font-semibold text-sm text-[#1ABC9C]">Select Area (Sq. Yd.)</span>
@@ -308,7 +308,7 @@ const PropertySearchBar = () => {
           <label className="text-xs text-gray-300 mb-1 uppercase">Beds</label>
           <div
             onClick={() => setShowBedsDropdown(true)}
-            className="w-full bg-[#333] border border-[#444] rounded px-3 py-2 text-sm flex justify-between items-center cursor-pointer select-none relative"
+            className="w-full bg-white text-black border border-[#444] rounded px-3 py-2 text-sm flex justify-between items-center cursor-pointer select-none relative"
             style={{ zIndex: 2 }}
           >
             <span>{filters.beds}</span>
@@ -318,7 +318,7 @@ const PropertySearchBar = () => {
           {showBedsDropdown && (
             <div
               ref={bedsDropdownRef}
-              className="absolute top-full left-0 mt-2 bg-white text-black rounded-md shadow-xl z-50 w-[200px] p-2"
+              className="absolute top-full left-0 mt-2 bg-white text-black text-black rounded-md shadow-xl z-50 w-[200px] p-2"
             >
               <div className="flex justify-between items-center border-b pb-1 mb-2">
                 <span className="font-semibold text-sm text-[#1ABC9C]">Select Beds</span>
