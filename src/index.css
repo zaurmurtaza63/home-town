@@ -29,3 +29,35 @@
   background-repeat: no-repeat;
   border-radius: 20px;
 }
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Forward animation */
+.animate-marquee {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+
+/* Reverse animation */
+.animate-marquee-reverse {
+  display: flex;
+  animation: marquee-reverse 25s linear infinite;
+}
+
