@@ -6,6 +6,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { signup, login, forgotPassword } from "../api/auth";
 import { useAuthModal } from "../context/AuthModalContext";
 import PropertySearchBar from "../Components/PropertySearchBar"
+import BrowseProperties from '../Components/BrowseProperties'
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -130,6 +131,7 @@ const HeroSection = () => {
   };
 
   return (
+    <>
    <section className="hero-section relative h-screen flex items-center justify-center text-white">
   <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
     <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8 w-full md:w-2/3 pt-12">
@@ -405,6 +407,8 @@ const HeroSection = () => {
         </div>
       )}
     </section>
+<BrowseProperties/>
+    </>
   );
 };
 
