@@ -131,7 +131,7 @@ const HeroSection = () => {
   return (
    <section className="hero-section relative h-screen flex items-center justify-center bg-gradient-to-b from-[#0b2239] to-[#1a365d] text-white">
   <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center">
-    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8 w-full md:w-2/3">
+    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8 w-full md:w-2/3 pt-12">
       Your Dream Property is Just a Click Away
     </h1>
 
