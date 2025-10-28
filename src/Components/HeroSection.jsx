@@ -140,7 +140,7 @@ const HeroSection = () => {
   <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
         {mode === "buy"
           ? "Search properties for buy in Pakistan"
-          : "Search properties to sale in Pakistan"}
+          : "Search properties to sell in Pakistan"}
       </h3>
 </div>
     <div className="flex flex-col sm:flex-row gap-4">
@@ -162,7 +162,7 @@ const HeroSection = () => {
               : "bg-transparent border border-[#1ABC9C] text-[#1ABC9C] hover:bg-[#1ABC9C] hover:text-white"
           }`}
         >
-          Sale
+          Sell
         </button>
       <Link
   to="/NewProjects"

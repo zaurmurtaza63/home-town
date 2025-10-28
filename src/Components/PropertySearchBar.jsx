@@ -78,17 +78,17 @@ const PropertySearchBar = () => {
   }, []);
 
   return (
-    <div className="relative mt-5 flex flex-col gap-2 w-full bg-[#222] text-white rounded-md p-3 shadow-lg md:max-w-[80%] max-w-full lg:max-w-[60%]">
+    <div className="relative mt-5 flex flex-col gap-2 w-full bg-white/10 backdrop-blur-[8px] text-white rounded-md p-3 shadow-lg md:max-w-[80%] max-w-full lg:max-w-[60%]">
       {/* Top Row */}
       <div className="flex items-center gap-4 flex-wrap">
         {/* City */}
         <div className="flex flex-col items-start">
-          <label className="text-xs text-gray-300 mb-1 uppercase">City</label>
+          <label className="text-xs text-white mb-1 uppercase">City</label>
           <select
             name="city"
             value={filters.city}
             onChange={handleChange}
-            className="bg-[#333] border border-[#444] rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
+            className="bg-white text-black border border-[#444] rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
           >
             <option>Karachi</option>
             <option>Lahore</option>
@@ -98,14 +98,14 @@ const PropertySearchBar = () => {
 
         {/* Location */}
         <div className="flex flex-col w-full sm:flex-1 items-start">
-          <label className="text-xs text-gray-300 mb-1 uppercase">Location</label>
+          <label className="text-xs text-white mb-1 uppercase">Location</label>
           <input
             type="text"
             name="location"
             value={filters.location}
             onChange={handleChange}
             placeholder="Enter location"
-            className="bg-[#333] border w-full border-[#444] rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
+            className="bg-white text-black opacity-65 border w-full border-[#2d2a2a] rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
           />
         </div>
 
@@ -121,7 +121,7 @@ const PropertySearchBar = () => {
       {/* Bottom Filters */}
       <div
         className={`grid sm:grid-cols-4 gap-4 transition-all duration-500 ease-in-out ${
-          showMore ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          showMore ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{
           overflow:
@@ -188,7 +188,7 @@ const PropertySearchBar = () => {
                 {/* MIN */}
                 <div className="flex-1">
                   <p className="text-[11px] font-semibold text-gray-700 mb-1 text-center">MIN</p>
-                  <div className="max-h-[150px] overflow-y-auto border rounded">
+                  <div className="max-h-[260px] overflow-y-auto border rounded">
                     {MinpriceOptions.map((price) => (
                       <div
                         key={price}
@@ -206,7 +206,7 @@ const PropertySearchBar = () => {
                 {/* MAX */}
                 <div className="flex-1">
                   <p className="text-[11px] font-semibold text-gray-700 mb-1 text-center">MAX</p>
-                  <div className="max-h-[150px] overflow-y-auto border rounded">
+                  <div className="max-h-[260px] overflow-y-auto border rounded">
                     {MaxpriceOptions.map((price) => (
                       <div
                         key={price}
@@ -266,7 +266,7 @@ const PropertySearchBar = () => {
                 {/* MIN */}
                 <div className="flex-1">
                   <p className="text-[11px] font-semibold text-gray-700 mb-1 text-center">MIN</p>
-                  <div className="max-h-[150px] overflow-y-auto border rounded">
+                  <div className="max-h-[260px] overflow-y-auto border rounded">
                     {minAreaOptions.map((area) => (
                       <div
                         key={area}
@@ -284,7 +284,7 @@ const PropertySearchBar = () => {
                 {/* MAX */}
                 <div className="flex-1">
                   <p className="text-[11px] font-semibold text-gray-700 mb-1 text-center">MAX</p>
-                  <div className="max-h-[150px] overflow-y-auto border rounded">
+                  <div className="max-h-[260px] overflow-y-auto border rounded">
                     {maxAreaOptions.map((area) => (
                       <div
                         key={area}
@@ -330,7 +330,7 @@ const PropertySearchBar = () => {
                 </button>
               </div>
 
-              <div className="max-h-[160px] overflow-y-auto border rounded">
+              <div className="max-h-[260px] overflow-y-auto border rounded">
                 {bedOptions.map((bed) => (
                   <div
                     key={bed}
