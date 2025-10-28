@@ -137,6 +137,7 @@ const PropertySearchBar = () => {
             onChange={handleChange}
             className="bg-[#333] w-full border border-[#444] rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#1ABC9C]"
           >
+            
             <option>All</option>
             <option>1</option>
             <option>2</option>
