@@ -11,6 +11,7 @@ const HeroSection = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [isBuilder, setIsBuilder] = useState(false);
   const [builderStep, setBuilderStep] = useState(0);
+  const [mode, setMode] = useState("buy");
 
   const {
     isOpen: showForm,
@@ -134,13 +135,34 @@ const HeroSection = () => {
       Your Dream Property is Just a Click Away
     </h1>
 
+<div>
+  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+        {mode === "buy"
+          ? "Search properties for buy in Pakistan"
+          : "Search properties to sale in Pakistan"}
+      </h3>
+</div>
     <div className="flex flex-col sm:flex-row gap-4">
-      <button className="px-8 py-3 bg-[#1ABC9C] text-white font-semibold rounded-md hover:bg-[#17a589] transition-all duration-300 shadow-lg hover:shadow-[#1ABC9C]/30">
-        <a href="#">Buy</a>
-      </button>
-      <button className="px-8 py-3 bg-transparent border border-[#1ABC9C] text-[#1ABC9C] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300">
-        <a href="#">Sell</a>
-      </button>
+      <button
+          onClick={() => setMode("buy")}
+          className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg ${
+            mode === "buy"
+              ? "bg-[#1ABC9C] text-white shadow-[#1ABC9C]/30"
+              : "bg-transparent border border-[#1ABC9C] text-[#1ABC9C] hover:bg-[#1ABC9C] hover:text-white"
+          }`}
+        >
+          Buy
+        </button>
+      <button
+          onClick={() => setMode("rent")}
+          className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 ${
+            mode === "rent"
+              ? "bg-[#1ABC9C] text-white shadow-[#1ABC9C]/30"
+              : "bg-transparent border border-[#1ABC9C] text-[#1ABC9C] hover:bg-[#1ABC9C] hover:text-white"
+          }`}
+        >
+          Rent
+        </button>
       <button className="px-8 py-3 bg-white text-[#0b2239] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300">
         <a href="#">New Projects</a>
       </button>
