@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -163,9 +164,12 @@ const HeroSection = () => {
         >
           Rent
         </button>
-      <button className="px-8 py-3 bg-white text-[#0b2239] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300">
-        <a href="#">New Projects</a>
-      </button>
+      <Link
+  to="/NewProjects"
+  className="px-8 py-3 bg-white text-[#0b2239] font-semibold rounded-md hover:bg-[#1ABC9C] hover:text-white transition-all duration-300"
+>
+  New Projects
+</Link>
     </div>
     <PropertySearchBar/>
   </div>
