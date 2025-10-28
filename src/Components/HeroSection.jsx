@@ -162,7 +162,7 @@ const HeroSection = () => {
               : "bg-transparent border border-[#1ABC9C] text-[#1ABC9C] hover:bg-[#1ABC9C] hover:text-white"
           }`}
         >
-          Rent
+          Sale
         </button>
       <Link
   to="/NewProjects"
