@@ -13,6 +13,8 @@ import Builders from "./Components/Builders";
 import HouseList from "./Components/HouseList";
 import { AuthModalProvider } from "./context/AuthModalContext";
 import NewProjects from "./Components/NewProjects";
+import SingleBlogPost from "./Components/SingleBlogPost"
+import Blogs from "./Components/Blogs"
 
 function Layout() {
   const location = useLocation();
@@ -43,6 +45,8 @@ function Layout() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/builders" element={<Builders />} />
         <Route path="/NewProjects" element={<NewProjects />} />
+        <Route path="/single-blog" element={<SingleBlogPost />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </div>
   );

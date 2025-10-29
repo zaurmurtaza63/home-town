@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import BlogFirstImg from "../SiteImages/blog-5.jpg"
 import BlogSecondImg from "../SiteImages/blog-7.jpg"
@@ -134,11 +136,14 @@ const Blogs = () => {
                                         <p className="text-sm text-gray-500 line-clamp-2">
                                             {blog.desc}
                                         </p>
-                                        <button
-                                            className="mt-4 text-[#1ABC9C] font-medium hover:text-green-800 transition"
+
+                                        <Link
+                                            to="/single-blog"
+                                            state={{ blog }}
+                                            className="mt-4 inline-block text-[#1ABC9C] font-medium hover:text-green-800 transition"
                                         >
                                             Learn More →
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -159,8 +164,8 @@ const Blogs = () => {
                     <button
                         onClick={handleNext}
                         className={`absolute right-0 top-1/2 -translate-y-1/2 bg-white border rounded-full shadow-md p-3 hover:bg-green-500 hover:text-white transition ${currentIndex >= blogs.length - slidesToShow
-                                ? "opacity-30 cursor-not-allowed"
-                                : ""
+                            ? "opacity-30 cursor-not-allowed"
+                            : ""
                             }`}
                     >
                         <HiChevronRight />

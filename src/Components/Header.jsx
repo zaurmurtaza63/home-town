@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import { Link } from "react-router-dom";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Logo from '../SiteImages/logo.png';
 import PriceFilteration from "./PriceFilteration";
@@ -90,10 +91,14 @@ const [isOpen, setIsOpen] = useState(false);
           </a>
         </li>
         <li className="group relative">
-          <a href="#" className="relative hover:text-white/80 transition py-1">Blogs
-            <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-          </a>
-        </li>
+  <Link
+    to="/blogs"
+    className="relative hover:text-white/80 transition py-1"
+  >
+    Blogs
+    <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+  </Link>
+</li>
         <li className="group relative">
           <a href="#" className="relative hover:text-white/80 transition py-1">Contact Us
             <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
