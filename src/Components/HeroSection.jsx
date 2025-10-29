@@ -8,6 +8,7 @@ import { useAuthModal } from "../context/AuthModalContext";
 import PropertySearchBar from "../Components/PropertySearchBar"
 import BrowseProperties from '../Components/BrowseProperties'
 import AgencyMarquee from '../Components/AgencyMarquee'
+import Blogs from "./Blogs";
 
 const HeroSection = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -410,6 +411,7 @@ const HeroSection = () => {
     </section>
 <BrowseProperties/>
 <AgencyMarquee/>
+<Blogs/>
     </>
   );
 };
