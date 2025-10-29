@@ -92,7 +92,7 @@ const [isOpen, setIsOpen] = useState(false);
         </li>
         <li className="group relative">
   <Link
-    to="/blogs"
+    to="/all-blogs"
     className="relative hover:text-white/80 transition py-1"
   >
     Blogs
